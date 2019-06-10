@@ -1,0 +1,38 @@
+.book_form{
+    border: 2px solid rgb(0, 26, 255);
+}
+
+.AutoCompleteText{
+    width: 100%;
+
+}
+
+.AutoCompleteText input{
+    box-sizing: border-box;
+    outline: none;
+}
+
+.AutoCompleteText ul{
+    border: 1px solid grey;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 2px 4px 1px rgba(0,0,0,.18);
+    background-color: white;
+    list-style-type: none;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    /* border-top: 1px solid grey; */
+
+}
+
+.AutoCompleteText ul::before {
+
+}
+
+.AutoCompleteText li {
+    padding: 10px 5px;
+    cursor: pointer;
+}
+
+.AutoCompleteText li:hover {
+    background-color: lightgrey;
+}

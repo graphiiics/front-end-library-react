@@ -1,0 +1,7 @@
+.book-list{
+    border: 2px solid rgb(0, 68, 255);
+    list-style-type: none
+}
+.book-list li {
+    border: 2px solid rgb(255, 251, 0);
+}

@@ -1,0 +1,33 @@
+.top-container{
+    border: 2px solid rgb(236, 28, 139);
+}
+
+.bottom-container{
+    border: 2px solid rgb(165, 21, 209);
+}
+
+/* Declare some variables */
+/* Define Styles */
+.current-page {
+    font-size: 1.5rem;
+    vertical-align: middle; 
+}
+  
+.country-card-container {
+    height: 60px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden; 
+}
+
+.country-name {
+    font-size: 0.9rem; 
+}
+
+.country-region {
+    font-size: 0.7rem; 
+}
+
+.current-page, .country-name, .country-region {
+    line-height: 1; 
+}
