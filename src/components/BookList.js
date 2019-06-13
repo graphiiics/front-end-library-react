@@ -14,20 +14,22 @@ class BookList extends React.Component{
             )
         }
         return(
-            <ul className="row book-list">
+            <div id="book-cards">
                 {this.props.books.map(book => {
                     return (
-                        <li key={book.id} className="col-12">
+                        <div className="book-card" key={book.id}>
+                       
                             <Link 
                                 to={`/book/${book.id}`} 
                                 className="text-reset text-decoration-none"
                             >
                                 <BookListItem book={book}/> 
                             </Link>
-                        </li>
+                        
+                    </div>
                     )
                 })}
-            </ul>
+            </div>
         )
     }
 }

@@ -1,4 +1,23 @@
-.header{
-    border: 2px solid rgb(0, 255, 55);
-    background-color: #1C3643;
+
+.header {
+    width: 100%;
+    padding: 0.5rem 0;
+    background-color: #00273a;
+    //border: 2px solid rgb(0, 255, 55);
+}
+
+.header__brand {
+    color: #FFB500;
+    display: flex;
+    align-items: center;
+}
+
+.header__brand:hover {
+    color: #F7EA48;
+    text-decoration: none;
+}
+
+.header__brand-logo {
+    margin-right: 0.5rem;
+    width: 40px;
 }

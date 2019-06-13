@@ -69,7 +69,6 @@ class BookForm extends React.Component{
                             />
                             {this.renderSuggestions()}  
                         </div>
-                        
                     </div>
                     <button 
                         type="submit" 

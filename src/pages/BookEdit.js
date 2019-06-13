@@ -5,9 +5,15 @@ import BookForm from '../components/BookForm';
 import axios from 'axios';
 
 class BookEdit extends React.Component{
-    state = {
-        form : {},
-        categories: []
+    constructor(props){
+        super(props);
+        this.state = {
+            form : {},
+            categories: [],
+            suggestions: [],
+            categoryText: ''
+        }
+        this.handleSuggestionSelected = this.handleSuggestionSelected.bind(this);
     }
 
     componentDidMount(){
@@ -29,7 +35,8 @@ class BookEdit extends React.Component{
                         author: book.author,
                         published_date: book.published_date,
                         category: book.category.name,
-                        status: book.status ? 'Borrowed' : 'Available'
+                        status: book.status,
+                        category_id: book.category.id
                     } 
                 });
             })
@@ -50,15 +57,9 @@ class BookEdit extends React.Component{
 
     handleSubmit = e => {
         e.preventDefault();
-        const book = {
-            name: this.state.form.name,
-            author: this.state.form.author,
-            published_date: this.state.form.published_date,
-            category_id: this.state.form.category
-        }
-        console.log('this is the book', book);
+        
 
-        axios.put(`/api/book/${this.props.match.params.bookId}`, book )
+        axios.put(`/api/book/${this.props.match.params.bookId}`, this.state.form )
             .then( res => {
                 console.log(res.data);
                 this.props.history.push('/books');
@@ -68,6 +69,40 @@ class BookEdit extends React.Component{
             });
         
     }
+
+    handleChangeTextChanged = e => {
+        console.log('that me bitch hangle change text');
+        
+        const value = e.target.value;
+        let suggestions = [];
+        if(value.length > 0){
+            const regex = new RegExp(`^${value}`, 'i');
+            suggestions = this.state.categories.sort().filter(category => regex.test(category.name));
+        } 
+        this.setState({ 
+            suggestions,
+            categoryText: value,
+            form: {
+                ...this.state.form,
+                [e.target.name]: e.target.value,
+            }
+        })
+    }
+
+    handleSuggestionSelected(category){
+        //console.log(category.name);
+        
+        this.setState({
+            categoryText: category.name,
+            suggestions: [],
+            form: {
+                ...this.state.form,
+                category: category.name,
+                category_id: category.id
+            } 
+        })
+    }
+
     render(){
         return(
             <React.Fragment>
@@ -86,7 +121,11 @@ class BookEdit extends React.Component{
                                 onChange={this.handleChange} 
                                 formValues={this.state.form}
                                 categories={this.state.categories}  
-                                onSubmit={this.handleSubmit}  
+                                onSubmit={this.handleSubmit} 
+                                onChangeTextChanged={this.handleChangeTextChanged}
+                                suggestions={this.state.suggestions} 
+                                categoryText={this.state.form.category}
+                                suggestionSelected={this.handleSuggestionSelected}
                             />
                         </div>
                     </div>

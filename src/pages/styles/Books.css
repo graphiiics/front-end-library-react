@@ -1,5 +1,26 @@
 .top-container{
-    border: 2px solid rgb(236, 28, 139);
+    background-color: #00B8DE;
+}
+.top-box{
+    width: 100%;
+    margin: 15px 20px;
+}
+
+#btn-new-book{
+    background-color: #FFB500;
+    font-family: Lato;
+    color: white;
+}
+
+#filter-box label{
+    font-weight: bold;
+    font-family: Lato;
+    font-size: 20px;
+    color: #00273a;
+}
+
+.medium-container{
+    background-color: #8BD3E6;
 }
 
 .bottom-container{
@@ -13,21 +34,9 @@
     vertical-align: middle; 
 }
   
-.country-card-container {
-    height: 60px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden; 
-}
 
-.country-name {
-    font-size: 0.9rem; 
-}
 
-.country-region {
-    font-size: 0.7rem; 
-}
-
-.current-page, .country-name, .country-region {
+.current-page {
     line-height: 1; 
 }
+
